@@ -27,6 +27,7 @@ namespace mantis_tests
             James = new JamesHelper(this);
             Mail = new MailHelper(this);
             Auth = new LoginHelper(this);
+            Admin = new AdminHelper(this, baseURL);
             Projects = new ProjectManagementHelper(this);
             MenageMenu = new ManagementMenuHelper(this, baseURL);
         }
@@ -68,6 +69,7 @@ namespace mantis_tests
         public JamesHelper James { get; set; }
         public MailHelper Mail { get; set; }
         public LoginHelper Auth { get; set; }
+        public AdminHelper Admin { get; set; }
         public ProjectManagementHelper Projects { get; protected set; }
         public ManagementMenuHelper MenageMenu { get; protected set; }
 
