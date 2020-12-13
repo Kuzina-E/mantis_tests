@@ -14,17 +14,17 @@ namespace mantis_tests
         [Test]
         public void ProjectRemovalTest()
         {
-            if (!app.Projects.IfProjectExist())
+            if (!app.API.IfProjectExist(admin))
             {
-                app.Projects.Create(new ProjectData("Test"));
+                app.API.CreateProject(admin, new ProjectData("Test"));
             }
 
-            List<ProjectData> oldList = app.Projects.GetProjectsList();
+            List<ProjectData> oldList = app.API.GetProjectList(admin);
             ProjectData toRemove = oldList[0];
 
             app.Projects.Remove(toRemove);
 
-            List<ProjectData> newList = app.Projects.GetProjectsList();
+            List<ProjectData> newList = app.API.GetProjectList(admin);
             oldList.RemoveAt(0);
             oldList.Sort();
             newList.Sort();
